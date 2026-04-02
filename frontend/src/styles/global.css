@@ -1,0 +1,274 @@
+/* 🌈 ROOT DESIGN SYSTEM */
+:root {
+  --bg-main: linear-gradient(135deg, #eef2ff, #fdf2f8);
+  --card-bg: rgba(255, 255, 255, 0.7);
+  --primary: #6366f1;
+  --secondary: #ec4899;
+  --accent: #22c55e;
+  --text-main: #0f172a;
+  --text-muted: #64748b;
+}
+
+/* BODY */
+body {
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  background: var(--bg-main);
+  color: var(--text-main);
+}
+
+/* LAYOUT */
+.main-layout {
+  padding: 20px 40px;
+}
+
+.container {
+  padding: 20px 40px;
+}
+
+/* NAVBAR */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 30px;
+  background: rgba(255,255,255,0.6);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid #eee;
+}
+
+/* LOGO */
+.logo {
+  font-weight: bold;
+  color: var(--primary);
+  cursor: pointer;
+}
+
+/* SEARCH */
+.navbar input {
+  width: 300px;
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+
+/* SIDEBAR */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -260px;
+  width: 230px;
+  height: 100%;
+  background: white;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  transition: 0.3s;
+  z-index: 100;
+}
+
+.sidebar.show {
+  left: 0;
+}
+
+.sidebar a {
+  text-decoration: none;
+  color: var(--text-main);
+  font-weight: 500;
+}
+
+/* OVERLAY */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.3);
+}
+
+/* GRID */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 24px;
+}
+
+/* 🔥 UNIQUE PRODUCT CARD */
+.card {
+  background: var(--card-bg);
+  border-radius: 16px;
+  padding: 14px;
+  backdrop-filter: blur(12px);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* gradient border effect */
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 16px;
+  padding: 1px;
+  background: linear-gradient(135deg, #6366f1, #ec4899);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  pointer-events: none;
+}
+
+.card:hover {
+  transform: translateY(-8px) scale(1.02);
+}
+
+/* IMAGE */
+.card img {
+  width: 100%;
+  height: 180px;
+  object-fit: contain;
+}
+
+/* TITLE */
+.card h4 {
+  font-size: 14px;
+  margin: 10px 0;
+}
+
+/* PRICE */
+.price {
+  font-weight: bold;
+  color: var(--primary);
+}
+
+/* BUTTON SYSTEM */
+.btn {
+  border: none;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: 0.2s;
+}
+
+/* PRIMARY */
+.btn.primary {
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  color: white;
+}
+
+/* SECONDARY */
+.btn.secondary {
+  background: #22c55e;
+  color: white;
+}
+
+/* DANGER */
+.btn.danger {
+  background: #ef4444;
+  color: white;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+}
+
+/* CARD ACTIONS */
+.card-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* ❤️ HEART (MODERN) */
+.heart {
+  font-size: 20px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.heart.liked {
+  color: #ec4899;
+  transform: scale(1.3);
+}
+
+/* PRODUCT DETAILS */
+.details-page {
+  display: flex;
+  gap: 40px;
+}
+
+.details-left img {
+  width: 300px;
+}
+
+.details-right {
+  flex: 1;
+}
+
+/* CART */
+.cart-item {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  background: var(--card-bg);
+  padding: 12px;
+  border-radius: 12px;
+}
+
+.cart-item img {
+  width: 80px;
+}
+
+/* CHECKOUT */
+.checkout {
+  display: flex;
+  gap: 40px;
+}
+
+.checkout-left,
+.checkout-right {
+  flex: 1;
+  background: var(--card-bg);
+  padding: 20px;
+  border-radius: 14px;
+}
+
+/* TIMELINE */
+.timeline {
+  display: flex;
+  justify-content: space-between;
+  margin: 15px 0;
+}
+
+.step {
+  flex: 1;
+  text-align: center;
+  padding: 8px;
+  border-bottom: 3px solid #ccc;
+  font-size: 12px;
+}
+
+.step.active {
+  border-color: var(--primary);
+  color: var(--primary);
+  font-weight: bold;
+}
+
+/* SUCCESS PAGE */
+.success {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70vh;
+}
+
+.success-box {
+  text-align: center;
+  animation: pop 0.5s ease;
+}
+
+@keyframes pop {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+}
